@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avrix - Digital Agency Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #141418;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Envato Market Bar */
+        .envato-bar {
+            background-color: #222222;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .envato-logo {
+            height: 20px;
+        }
+        
+        .buy-now-btn {
+            background-color: #8cce26;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        /* Header Styles */
+        header {
+            position: relative;
+            width: 100%;
+            padding: 25px 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: transparent;
+            z-index: 1000;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 45px;
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 700;
+            margin-left: 10px;
+            letter-spacing: 1px;
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 35px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        nav ul li a i {
+            margin-left: 5px;
+            font-size: 12px;
+        }
+        
+        nav ul li a:hover {
+            color: #a970ff;
+        }
+        
+        .hamburger-menu {
+            display: none;
+            color: white;
+            font-size: 24px;
+            margin-left: 25px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1e1e29 0%, #141418 100%);
+            padding-left: 120px;
+        }
+        
+        .background-pattern {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .creative-pill {
+            display: inline-block;
+            padding: 8px 30px;
+            background-color: rgba(94, 95, 229, 0.1);
+            border: 1px solid rgba(94, 95, 229, 0.3);
+            border-radius: 30px;
+            color: #7e76ff;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 120px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+        
+        .hero h1 .outline {
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255,255,255,0.9);
+        }
+        
+        .award-badge {
+            position: absolute;
+            bottom: 25%;
+            right: 15%;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #5d6fff 0%, #37bcd4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(93, 111, 255, 0.3);
+        }
+        
+        .award-text {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: rotate 20s linear infinite;
+        }
+        
+        .award-arrow {
+            position: absolute;
+            font-size: 28px;
+            color: white;
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Scroll Button */
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .scroll-down span {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .scroll-down i {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            background-color: #5d6fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background-color: #4a59ff;
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 100px;
+            }
+            
+            .award-badge {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .hero {
+                padding-left: 70px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 30px;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .hamburger-menu {
+                display: block;
+            }
+            
+            .hero {
+                padding: 0 30px;
+            }
+            
+            .hero h1 {
+                font-size: 60px;
+            }
+            
+            .creative-pill {
+                font-size: 14px;
+                padding: 6px 20px;
+            }
+            
+            .award-badge {
+                width: 90px;
+                height: 90px;
+                right: 10%;
+                bottom: 20%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Envato Market Bar -->
+    <div class="envato-bar">
+        <img src="https://assets.market-storefront.envato.com/storefront/packs/media/images/logos/envato_market-a5cab659.svg" alt="Envato Market" class="envato-logo">
+        <a href="#" class="buy-now-btn">Buy now</a>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.5 0C10.0739 0 0 10.0739 0 22.5C0 34.9261 10.0739 45 22.5 45C34.9261 45 45 34.9261 45 22.5C45 10.0739 34.9261 0 22.5 0ZM36.8283 33.9543L33.9543 36.8283C33.5217 37.2609 32.8098 37.2609 32.3772 36.8283L22.5 26.9511L12.6228 36.8283C12.1902 37.2609 11.4783 37.2609 11.0457 36.8283L8.17174 33.9543C7.73913 33.5217 7.73913 32.8098 8.17174 32.3772L18.049 22.5L8.17174 12.6228C7.73913 12.1902 7.73913 11.4783 8.17174 11.0457L11.0457 8.17174C11.4783 7.73913 12.1902 7.73913 12.6228 8.17174L22.5 18.049L32.3772 8.17174C32.8098 7.73913 33.5217 7.73913 33.9543 8.17174L36.8283 11.0457C37.2609 11.4783 37.2609 12.1902 36.8283 12.6228L26.9511 22.5L36.8283 32.3772C37.2609 32.8098 37.2609 33.5217 36.8283 33.9543Z" fill="white"/>
+            </svg>
+            <span class="logo-text">AVRIX</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home <i class="fas fa-chevron-down"></i></a></li>
+                <li><a href="#">Pages <i class="fas fa-chevron-down"></i></a></li>
+                <li><a href="#">Services <i class="fas fa-chevron-down"></i></a></li>
+                <li><a href="#">Blog <i class="fas fa-chevron-down"></i></a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="hamburger-menu">
+                <svg width="25" height="20" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.5625 1.25H23.4375M1.5625 10H23.4375M1.5625 18.75H23.4375" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="background-pattern">
+            <svg width="100%" height="100%" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#37bcd4;stop-opacity:0.1" />
+                        <stop offset="100%" style="stop-color:#5d6fff;stop-opacity:0.1" />
+                    </linearGradient>
+                </defs>
+                <g fill="none" stroke="url(#gradient)" stroke-width="1">
+                    <path d="M0,50 Q200,150,400,250 T800,450 T1200,650" />
+                    <path d="M0,150 Q200,250,400,350 T800,550 T1200,750" />
+                    <path d="M0,250 Q200,350,400,450 T800,650 T1200,850" />
+                    <path d="M0,350 Q200,450,400,550 T800,750 T1200,950" />
+                    <path d="M0,450 Q200,550,400,650 T800,850 T1200,1050" />
+                    <path d="M0,550 Q200,650,400,750 T800,950 T1200,1150" />
+                    <path d="M0,650 Q200,750,400,850 T800,1050 T1200,1250" />
+                </g>
+            </svg>
+        </div>
+        <div class="hero-content">
+            <div class="creative-pill">Creative digital studio</div>
+            <h1>BUILD <span class="outline">GREAT</span><br>PORTFOLIO</h1>
+            
+            <div class="award-badge">
+                <div class="award-text">
+                    <svg viewBox="0 0 100 100" width="150" height="150">
+                        <defs>
+                            <path id="circle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+                        </defs>
+                        <text>
+                            <textPath href="#circle" style="font-size: 9px; fill: white; font-weight: 600; letter-spacing: 1.5px;">
+                                AWARD WINNING AGENCY • AWARD WINNING AGENCY •
+                            </textPath>
+                        </text>
+                    </svg>
+                </div>
+                <div class="award-arrow">↗</div>
+            </div>
+        </div>
+        
+        <div class="scroll-down">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        
+        <div class="back-to-top">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger-menu');
+            const navMenu = document.querySelector('nav ul');
+            
+            hamburger.addEventListener('click', function() {
+                if (navMenu.style.display === 'flex') {
+                    navMenu.style.display = 'none';
+                } else {
+                    navMenu.style.display = 'flex';
+                    navMenu.style.flexDirection = 'column';
+                    navMenu.style.position = 'absolute';
+                    navMenu.style.top = '100%';
+                    navMenu.style.left = '0';
+                    navMenu.style.width = '100%';
+                    navMenu.style.backgroundColor = '#141418';
+                    navMenu.style.padding = '20px';
+                }
+            });
+            
+            // Scroll down button
+            const scrollDown = document.querySelector('.scroll-down');
+            
+            scrollDown.addEventListener('click', function() {
+                window.scrollBy({
+                    top: window.innerHeight,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Back to top button
+            const backToTop = document.querySelector('.back-to-top');
+            
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 200) {
+                    backToTop.style.opacity = '1';
+                } else {
+                    backToTop.style.opacity = '0';
+                }
+            });
+            
+            // Show/hide back to top button on load
+            if (window.pageYOffset > 200) {
+                backToTop.style.opacity = '1';
+            } else {
+                backToTop.style.opacity = '0';
+            }
+        });
+    </script>
+</body>
+</html>
